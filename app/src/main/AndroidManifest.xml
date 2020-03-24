@@ -11,12 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".StatisticView"></activity>
-        <activity android:name=".Landing"
-            android:supportsPictureInPicture="true"
-            android:configChanges=
-                "screenSize|smallestScreenSize|screenLayout|orientation"
-            />
+        <activity android:name=".GraphicView"></activity>
+        <activity android:name=".StatisticView" />
+        <activity
+            android:name=".Landing"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+            android:supportsPictureInPicture="true" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

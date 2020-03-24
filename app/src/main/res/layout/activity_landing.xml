@@ -23,7 +23,7 @@
         app:layout_constraintVertical_bias="0.081" />
 
     <Button
-        android:id="@+id/graph"
+        android:id="@+id/statistical"
         android:layout_width="237dp"
         android:layout_height="58dp"
         android:background="@drawable/roundedbutton"
@@ -39,12 +39,12 @@
         app:layout_constraintVertical_bias="0.266" />
 
     <Button
-        android:id="@+id/graph2"
+        android:id="@+id/graphical"
         android:layout_width="237dp"
         android:layout_height="58dp"
         android:background="@drawable/roundedbutton"
         android:fontFamily="@font/productsans"
-        android:text="@string/statistical_information"
+        android:text="@string/graphical_information"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -69,7 +69,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/graph"
+        app:layout_constraintTop_toBottomOf="@+id/statistical"
         app:layout_constraintVertical_bias="1.0" />
 
     <Button

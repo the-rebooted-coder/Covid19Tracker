@@ -16,8 +16,9 @@ import android.widget.Button;
 import com.google.android.material.snackbar.Snackbar;
 
 public class Landing extends AppCompatActivity {
-    private Button graphview;
+    private Button static_view;
     private Button enter;
+    private Button graphic_view;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), "Kindly Turn On Data Services for First Use", Snackbar.LENGTH_LONG);
@@ -50,18 +51,30 @@ public class Landing extends AppCompatActivity {
             }
         });
 
-        graphview = findViewById(R.id.graph);
+        static_view = findViewById(R.id.statistical);
         //End of PiP
-        graphview.setOnClickListener(new View.OnClickListener() {
+        static_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                moveToStaticPage();
+            }
+        });
+        graphic_view = findViewById(R.id.graphical);
+        graphic_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 moveToGraphPage();
             }
         });
     }
-    private void moveToGraphPage(){
+    private void moveToStaticPage(){
 
         Intent intent = new Intent(Landing.this, StatisticView.class);
         startActivity(intent);
     }
+    private void moveToGraphPage(){
+
+        Intent intent = new Intent(Landing.this, GraphicView.class);
+        startActivity(intent);
+}
 }
