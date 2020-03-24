@@ -6,5 +6,5 @@
     <string name="graph_view">Graph View</string>
     <string name="statistical_information">statistical information</string>
     <string name="developer_name">App Developed by Spandan Saxena</string>
-    <string name="check_box_1">Enable Enhanced Loadout</string>
+    <string name="check">Enable Fast Load</string>
 </resources>
