@@ -17,43 +17,15 @@ import com.google.android.material.snackbar.Snackbar;
 
 public class Landing extends AppCompatActivity {
     private Button static_view;
-    private Button enter;
     private Button graphic_view;
     private Button bharat_view;
+    private Button license;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), "Kindly Turn On Data Services for First Use", Snackbar.LENGTH_LONG);
         snackbar.show();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing);
-
-        //PiP Mode
-
-        enter = findViewById(R.id.enter_button);
-        enter.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.O)
-            @Override
-            public void onClick(View view)
-            {
-                Display d = getWindowManager()
-                        .getDefaultDisplay();
-                Point p = new Point();
-                d.getSize(p);
-                int width = p.x;
-                int height = p.y;
-
-                Rational ratio
-                        = new Rational(width, height);
-                PictureInPictureParams.Builder
-                        pip_Builder
-                        = new PictureInPictureParams
-                        .Builder();
-                pip_Builder.setAspectRatio(ratio).build();
-                enterPictureInPictureMode(pip_Builder.build());
-            }
-        });
-
-        //End of PiP
 
         static_view = findViewById(R.id.statistical);
         static_view.setOnClickListener(new View.OnClickListener() {
@@ -76,6 +48,13 @@ public class Landing extends AppCompatActivity {
                 moveToBharatPage();
             }
         });
+        license = findViewById(R.id.license);
+        license.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                moveToLicensePage();
+            }
+        });
     }
     private void moveToStaticPage(){
 
@@ -90,6 +69,11 @@ public class Landing extends AppCompatActivity {
     private void moveToBharatPage(){
 
         Intent intent = new Intent(Landing.this, IndianView.class);
+        startActivity(intent);
+    }
+    private void moveToLicensePage(){
+
+        Intent intent = new Intent(Landing.this, Licenses.class);
         startActivity(intent);
     }
 }

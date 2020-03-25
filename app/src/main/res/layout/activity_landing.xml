@@ -67,39 +67,19 @@
         app:layout_constraintTop_toBottomOf="@+id/greeting"
         app:layout_constraintVertical_bias="0.152" />
 
-    <TextView
-        android:id="@+id/textView"
+    <Button
+        android:id="@+id/license"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="176dp"
-        android:layout_marginTop="415dp"
-        android:layout_marginEnd="176dp"
-        android:layout_marginBottom="24dp"
+        android:background="@drawable/roundedlicense"
         android:fontFamily="@font/productsansitalic"
-        android:text="@string/developer_name"
-        android:textColor="@android:color/background_light"
-        android:textSize="16sp"
+        android:text="@string/licenses"
+        android:textColor="@color/design_default_color_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/statistical"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <Button
-        android:id="@+id/enter_button"
-        android:layout_width="52dp"
-        android:layout_height="64dp"
-        android:background="@drawable/pip"
-        android:bottomLeftRadius="8dp"
-        android:bottomRightRadius="8dp"
-        android:topLeftRadius="8dp"
-        android:topRightRadius="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.953"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.907" />
+        app:layout_constraintTop_toBottomOf="@+id/bharat"
+        app:layout_constraintVertical_bias="0.942" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
