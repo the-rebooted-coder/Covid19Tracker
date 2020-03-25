@@ -53,8 +53,26 @@ public class IndianView extends AppCompatActivity {
         //End of PiP
         final WebView webview = (WebView) findViewById(R.id.browser);
         webview.getSettings().setJavaScriptEnabled(true);
-
+        webview.getSettings().setDomStorageEnabled(true);
+        webview.setWebViewClient(new WebViewClient() {
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                webview.loadUrl("javascript:(function() { " +
+                        "document.getElementById('root').getElementsByClassName('Navbar')[0].style.display='none'; " +
+                        "document.getElementById('root').getElementsByClassName('table fadeInUp')[0].style.display='none'; "+
+                        "document.getElementById('root').getElementsByClassName('ChoroplethMap fadeInUp')[0].style.display='none'; "+
+                        "document.getElementById('root').getElementsByClassName('timeseries-header fadeInUp')[0].style.display='none'; "+
+                        "document.getElementById('root').getElementsByClassName('TimeSeries-Parent fadeInUp')[0].style.display='none'; "+
+                        "document.getElementById('root').getElementsByClassName('Banner fadeInUp')[0].style.display='none'; "+
+                        "document.getElementsByTagName('footer')[0].style.display='none'; " +
+                        "})()");
+            }
+        });
         webview.loadUrl("https://www.covid19india.org/");
+        webview.clearView();
+        webview.measure(100,100);
+        webview.getSettings().setUseWideViewPort(true);
+        webview.getSettings().setLoadWithOverviewMode(true);
         webview.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
         webview.scrollTo(0, 50);
         webview.setVerticalScrollBarEnabled(false);
