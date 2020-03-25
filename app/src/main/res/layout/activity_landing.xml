@@ -34,8 +34,23 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.423" />
+        app:layout_constraintTop_toBottomOf="@+id/graphical"
+        app:layout_constraintVertical_bias="0.076" />
+
+    <Button
+        android:id="@+id/bharat"
+        android:layout_width="237dp"
+        android:layout_height="58dp"
+        android:background="@drawable/roundedbutton"
+        android:fontFamily="@font/productsans"
+        android:text="@string/indian_covid_dashboard"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/statistical"
+        app:layout_constraintVertical_bias="0.110000014" />
 
     <Button
         android:id="@+id/graphical"
@@ -49,8 +64,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.271" />
+        app:layout_constraintTop_toBottomOf="@+id/greeting"
+        app:layout_constraintVertical_bias="0.152" />
 
     <TextView
         android:id="@+id/textView"
@@ -73,8 +88,8 @@
 
     <Button
         android:id="@+id/enter_button"
-        android:layout_width="70dp"
-        android:layout_height="65dp"
+        android:layout_width="52dp"
+        android:layout_height="64dp"
         android:background="@drawable/pip"
         android:bottomLeftRadius="8dp"
         android:bottomRightRadius="8dp"
@@ -82,9 +97,9 @@
         android:topRightRadius="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.951"
+        app:layout_constraintHorizontal_bias="0.953"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.817" />
+        app:layout_constraintVertical_bias="0.907" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

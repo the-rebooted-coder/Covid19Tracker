@@ -19,12 +19,14 @@ public class Landing extends AppCompatActivity {
     private Button static_view;
     private Button enter;
     private Button graphic_view;
+    private Button bharat_view;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), "Kindly Turn On Data Services for First Use", Snackbar.LENGTH_LONG);
         snackbar.show();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing);
+
         //PiP Mode
 
         enter = findViewById(R.id.enter_button);
@@ -51,8 +53,9 @@ public class Landing extends AppCompatActivity {
             }
         });
 
-        static_view = findViewById(R.id.statistical);
         //End of PiP
+
+        static_view = findViewById(R.id.statistical);
         static_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,6 +69,13 @@ public class Landing extends AppCompatActivity {
                 moveToGraphPage();
             }
         });
+        bharat_view = findViewById(R.id.bharat);
+        bharat_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                moveToBharatPage();
+            }
+        });
     }
     private void moveToStaticPage(){
 
@@ -77,4 +87,9 @@ public class Landing extends AppCompatActivity {
         Intent intent = new Intent(Landing.this, GraphicView.class);
         startActivity(intent);
 }
+    private void moveToBharatPage(){
+
+        Intent intent = new Intent(Landing.this, IndianView.class);
+        startActivity(intent);
+    }
 }
