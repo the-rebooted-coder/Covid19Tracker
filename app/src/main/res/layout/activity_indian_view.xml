@@ -41,8 +41,8 @@
 
     <Button
         android:id="@+id/enter_button"
-        android:layout_width="57dp"
-        android:layout_height="77dp"
+        android:layout_width="37dp"
+        android:layout_height="48dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/pip"
         app:layout_constraintBottom_toTopOf="@+id/browser"
@@ -51,5 +51,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.944" />
+
+    <TextView
+        android:id="@+id/quote"
+        android:layout_width="357dp"
+        android:layout_height="167dp"
+        android:fontFamily="@font/productsansbold"
+        android:textAlignment="center"
+        android:textColor="#6562BE"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toTopOf="@+id/browser"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

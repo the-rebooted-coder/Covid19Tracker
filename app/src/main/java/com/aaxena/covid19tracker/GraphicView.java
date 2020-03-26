@@ -16,7 +16,7 @@ public class GraphicView extends AppCompatActivity {
         //Toast to Be Patient
 
         Toast.makeText(GraphicView.this,
-                "Be Patient for First Load", Toast.LENGTH_LONG).show();
+                "Be Patient while Loading", Toast.LENGTH_LONG).show();
 
         //WebView Implementation
 
@@ -24,7 +24,6 @@ public class GraphicView extends AppCompatActivity {
         setContentView(webView);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.loadUrl("https://www.bing.com/covid");
-        webView.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
         webView.scrollTo(0, 0);
         webView.setVerticalScrollBarEnabled(false);
         webView.setHorizontalScrollBarEnabled(false);
