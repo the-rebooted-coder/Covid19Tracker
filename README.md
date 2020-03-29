@@ -1,4 +1,4 @@
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-success.svg)](https://opensource.org/licenses/MIT)
 # Covid19Tracker
 ## This is and Android Studio Package which displays vital information of Covid19 
 ###### Using this app the User can see all the information related to the Novel Pandemic using 3 Simple Windows
