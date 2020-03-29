@@ -116,7 +116,9 @@ public class IndianView extends AppCompatActivity {
                         "document.getElementById('root').getElementsByClassName('timeseries-header fadeInUp')[0].style.display='none'; "+
                         "document.getElementById('root').getElementsByClassName('TimeSeries-Parent fadeInUp')[0].style.display='none'; "+
                         "document.getElementById('root').getElementsByClassName('Banner fadeInUp')[0].style.display='none'; "+
+                        "document.getElementById('root').getElementsByClassName('svg-parent')[0].style.display='none'; "+
                         "document.getElementsByTagName('footer')[0].style.display='none'; " +
+                        "document.getElementsByTagName('home-right')[0].style.display='none'; " +
                         "})()");
             }
         });
@@ -125,7 +127,7 @@ public class IndianView extends AppCompatActivity {
         webview.measure(100,100);
         webview.getSettings().setUseWideViewPort(true);
         webview.getSettings().setLoadWithOverviewMode(true);
-        webview.scrollTo(0, 50);
+        webview.scrollTo(0, 224);
         webview.setVerticalScrollBarEnabled(false);
         webview.setHorizontalScrollBarEnabled(false);
         webview.setOnTouchListener(new View.OnTouchListener() {
@@ -134,7 +136,6 @@ public class IndianView extends AppCompatActivity {
                 return (event.getAction() == MotionEvent.ACTION_MOVE);
             }
         });
-
     }
 
 }

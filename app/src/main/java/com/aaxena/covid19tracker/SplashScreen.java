@@ -20,7 +20,7 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() {
                 Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-                v.vibrate(17);
+                v.vibrate(20);
                 Intent i=new Intent(SplashScreen.this,Landing.class);
                 startActivity(i);
                 finish();
