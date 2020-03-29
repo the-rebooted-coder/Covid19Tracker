@@ -1,4 +1,4 @@
-[![License: MIT](https://img.shields.io/badge/License-MIT-success.svg)]<br>[Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-success.svg)][![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
 # Covid19Tracker
 ## This is and Android Studio Package which displays vital information of Covid19 
 ###### Using this app the User can see all the information related to the Novel Pandemic using 3 Simple Windows
