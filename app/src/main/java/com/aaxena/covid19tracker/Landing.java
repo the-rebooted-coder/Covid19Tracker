@@ -4,8 +4,10 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationCompat;
 
 import android.Manifest;
+import android.app.NotificationManager;
 import android.app.PictureInPictureParams;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -177,4 +179,5 @@ public class Landing extends AppCompatActivity {
         }
         return !ranBefore;
     }
+
 }
