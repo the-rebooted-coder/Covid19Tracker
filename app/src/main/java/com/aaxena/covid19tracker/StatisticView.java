@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -18,18 +19,24 @@ public class StatisticView extends AppCompatActivity {
         //Toast to Be Patient
 
         Toast.makeText(StatisticView.this,
-                "Be Patient for First Load", Toast.LENGTH_LONG).show();
+                "Loading Data", Toast.LENGTH_LONG).show();
 
        //WebView Implementation
 
-        WebView webView = new WebView(this);
-        setContentView(webView);
-        //webView.getSettings().setJavaScriptEnabled(true);
-        webView.loadUrl("https://google.org/crisisresponse/covid19-map");
-        webView.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
-        webView.scrollTo(0, 690);
-        webView.setVerticalScrollBarEnabled(false);
-        webView.setHorizontalScrollBarEnabled(false);
+        final WebView webview = (WebView) findViewById(R.id.stat);
+        webview.setWebViewClient(new WebViewClient() {
+            @Override
+            public void onPageFinished(WebView view, String url) {
+            }
+        });
+        webview.loadUrl("https://google.org/crisisresponse/covid19-map");
+        webview.clearView();
+        webview.measure(100,100);
+        webview.getSettings().setUseWideViewPort(true);
+        webview.getSettings().setLoadWithOverviewMode(true);
+        webview.scrollTo(0, 700);
+        webview.setVerticalScrollBarEnabled(false);
+        webview.setHorizontalScrollBarEnabled(false);
 
     }
 }

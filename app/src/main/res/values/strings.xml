@@ -20,4 +20,5 @@
     <string name="afternoon">Good Afternoon</string>
     <string name="morning">Good Morning</string>
     <string name="question">Were you at home today all day?</string>
+    <string name="sensitive">This app fetches data from various data sources and thus information reflected here is bound to differ with other sources.\n\nThis data changes rapidly\n\n<b>WE STAND WITH EVERYONE FIGHTING ON THE FRONTLINES!</b></string>
 </resources>

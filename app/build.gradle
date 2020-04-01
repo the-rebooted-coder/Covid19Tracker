@@ -10,7 +10,7 @@ android {
         minSdkVersion 24
         targetSdkVersion 29
         versionCode 1
-        versionName "001-anshu-release"
+        versionName "002-covid19tracker-release"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
