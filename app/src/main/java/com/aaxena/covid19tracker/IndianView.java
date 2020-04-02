@@ -18,6 +18,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -29,52 +30,53 @@ public class IndianView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_indian_view);
-
+        Toast.makeText(IndianView.this,
+                "Loading Dashboard", Toast.LENGTH_LONG).show();
         Calendar c = Calendar.getInstance();
         int timeOfDay = c.get(Calendar.HOUR_OF_DAY);
 
         if(timeOfDay >= 0 && timeOfDay < 01){
             quote=findViewById(R.id.quote);
-            quote.setText("Don't Hoard groceries and essentials. Please ensure that people who are in need don't face a shortage because of you!  ");
+            quote.setText(R.string.quote101);
         }else if(timeOfDay >= 01 && timeOfDay < 07){
             quote=findViewById(R.id.quote);
-            quote.setText("Plan ahead! Take a minute and check how much you have at home. Planning ahead let's you buy exactly what you need! ");
+            quote.setText(R.string.quote102);
         }
         else if(timeOfDay >= 07 && timeOfDay < 9){
             quote=findViewById(R.id.quote);
-            quote.setText("Plan and calculate your essential needs for the next three weeks and get only what is bare minimum needed.");
+            quote.setText(R.string.quote103);
         }
         else if(timeOfDay >= 9 && timeOfDay < 12){
             quote=findViewById(R.id.quote);
-            quote.setText("Be compassionate! Help those in need like the elderly and poor. They are facing a crisis you cannot even imagine!");
+            quote.setText(R.string.quote104);
         }
         else if(timeOfDay >= 12 && timeOfDay < 15){
             quote=findViewById(R.id.quote);
-            quote.setText("Going out to buy essentials? Social Distancing is KEY! Maintain 2 metres distance between each other in the line.");
+            quote.setText(R.string.quote105);
         }
         else if(timeOfDay >= 15 && timeOfDay < 18){
             quote=findViewById(R.id.quote);
-            quote.setText("Lockdown means LOCKDOWN! Avoid going out unless absolutely necessary. Stay safe!");
+            quote.setText(R.string.quote106);
         }
         else if(timeOfDay >= 18 && timeOfDay < 20){
             quote=findViewById(R.id.quote);
-            quote.setText("Stand Against FAKE News and WhatsApp Forwards! Do NOT forward a message until you verify the content it contains.");
+            quote.setText(R.string.quote107);
         }
         else if(timeOfDay >= 20 && timeOfDay < 22){
             quote=findViewById(R.id.quote);
-            quote.setText("Help out your workers and domestic workers by not cutting their salaries. Show the true Indian spirit!  ");
+            quote.setText(R.string.quote108);
         }
         else if(timeOfDay >= 22 && timeOfDay < 23){
             quote=findViewById(R.id.quote);
-            quote.setText("Panic mode : OFF! ESSENTIALS ARE ON!");
+            quote.setText(R.string.quote109);
         }
         else if(timeOfDay >= 23 && timeOfDay < 0){
             quote=findViewById(R.id.quote);
-            quote.setText("Be considerate : While buying essentials remember : You need to share with 130 Crore Others!");
+            quote.setText(R.string.quote110);
         }
         else {
             quote=findViewById(R.id.quote);
-            quote.setText("If you have symptoms and suspect you have coronavirus - reach out to your doctor or call state helplines. Get help.  ");
+            quote.setText(R.string.quote111);
         }
         //PiP Mode
 
@@ -99,6 +101,7 @@ public class IndianView extends AppCompatActivity {
                         .Builder();
                 pip_Builder.setAspectRatio(ratio).build();
                 enterPictureInPictureMode(pip_Builder.build());
+
             }
         });
 

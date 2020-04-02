@@ -14,6 +14,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Point;
+import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Vibrator;
@@ -25,6 +26,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.github.javiersantos.appupdater.AppUpdater;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.text.SimpleDateFormat;
@@ -42,13 +44,14 @@ public class Landing extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), "Kindly Turn Data Services 'On'", Snackbar.LENGTH_LONG);
+        snackbar.setAction(R.string.wifi_on, new MyUndoListener());
         snackbar.show();
         super.onCreate(savedInstanceState);
         if (isFirstTime()) {
             new AlertDialog.Builder(this)
                     .setTitle("Message from the Developer")
                     .setMessage(R.string.sensitive)
-                    .setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                    .setPositiveButton("I Understand", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
@@ -59,6 +62,11 @@ public class Landing extends AppCompatActivity {
         }
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_landing);
+
+       //App Updater
+        AppUpdater appUpdater = new AppUpdater(this);
+        appUpdater.start();
+
 
         Calendar c = Calendar.getInstance();
         int timeOfDay = c.get(Calendar.HOUR_OF_DAY);
@@ -180,4 +188,12 @@ public class Landing extends AppCompatActivity {
         return !ranBefore;
     }
 
+    public class MyUndoListener implements View.OnClickListener {
+
+        @Override
+        public void onClick(View v) {
+            WifiManager wifi = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+            wifi.setWifiEnabled(true);
+        }
+    }
 }

@@ -20,5 +20,19 @@
     <string name="afternoon">Good Afternoon</string>
     <string name="morning">Good Morning</string>
     <string name="question">Were you at home today all day?</string>
-    <string name="sensitive">This app fetches data from various data sources and thus information reflected here is bound to differ with other sources.\n\nThis data changes rapidly\n\n<b>WE STAND WITH EVERYONE FIGHTING ON THE FRONTLINES!</b></string>
+    <string name="sensitive">This app fetches data from various data sources and thus information reflected here may differ from other sources.\n\n<b>WE STAND WITH EVERYONE FIGHTING ON THE FRONTLINES!</b></string>
+    <string name="quote101">\"Don\'t Hoard groceries and essentials. Please ensure that people who are in need don\'t face a shortage because of you!  \"</string>
+    <string name="quote102">\"Plan ahead! Take a minute and check how much you have at home. Planning ahead let\'s you buy exactly what you need! \"</string>
+    <string name="quote103">Plan and calculate your essential needs for the next three weeks and get only what is bare minimum needed.</string>
+    <string name="quote104">Be compassionate! Help those in need like the elderly and poor. They are facing a crisis you cannot even imagine!</string>
+    <string name="quote105">Going out to buy essentials? Social Distancing is KEY! Maintain 2 metres distance between each other in the line.</string>
+    <string name="quote106">Lockdown means LOCKDOWN! Avoid going out unless absolutely necessary. Stay safe!</string>
+    <string name="quote107">Stand Against FAKE News and WhatsApp Forwards! Do NOT forward a message until you verify the content it contains.</string>
+    <string name="quote108">\"Help out your workers and domestic workers by not cutting their salaries. Show the true Indian spirit!  \"</string>
+    <string name="quote109">Panic mode : OFF! ESSENTIALS ARE ON!</string>
+    <string name="quote110">Be considerate : While buying essentials remember : You need to share with 130 Crore Others!</string>
+    <string name="quote111">\"If you have symptoms and suspect you have coronavirus - reach out to your doctor or call state helplines. Get help.  \"</string>
+    <string name="wifi_on">Turn Wifi On</string>
+    <string name="notification_description">Checking</string>
+    <string name="update_app_url">https://www.dropbox.com/s/7oz6mebuah4ykr3/Covid-19%20Tracker.apk?dl=0</string>
 </resources>

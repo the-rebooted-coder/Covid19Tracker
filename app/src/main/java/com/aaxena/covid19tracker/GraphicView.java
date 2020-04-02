@@ -16,7 +16,7 @@ public class GraphicView extends AppCompatActivity {
         //Toast to Be Patient
 
         Toast.makeText(GraphicView.this,
-                "Be Patient while Loading", Toast.LENGTH_LONG).show();
+                "Loading Map", Toast.LENGTH_LONG).show();
 
         //WebView Implementation
 
