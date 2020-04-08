@@ -59,6 +59,7 @@
         android:layout_height="58dp"
         android:background="@drawable/roundedbutton"
         android:fontFamily="@font/productsans"
+        android:hapticFeedbackEnabled="true"
         android:text="@string/graphical_information"
         android:textColor="#FFFFFF"
         android:textSize="18sp"

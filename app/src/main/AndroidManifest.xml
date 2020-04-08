@@ -19,6 +19,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".UpdateProvider" />
 
         <uses-library
             android:name="org.apache.http.legacy"
@@ -26,7 +27,6 @@
 
         <activity android:name=".Poster" />
         <activity android:name=".Licenses" />
-        <activity android:name=".HelplineNumbers" />
         <activity
             android:name=".IndianView"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"

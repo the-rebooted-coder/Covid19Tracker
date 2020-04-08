@@ -1,35 +1,25 @@
 package com.aaxena.covid19tracker;
 
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.app.NotificationCompat;
-
-import android.Manifest;
-import android.app.NotificationManager;
-import android.app.PictureInPictureParams;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Point;
 import android.net.wifi.WifiManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Vibrator;
-import android.util.Rational;
-import android.view.Display;
+import android.view.HapticFeedbackConstants;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.github.javiersantos.appupdater.AppUpdater;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.material.snackbar.Snackbar;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class Landing extends AppCompatActivity {
@@ -40,6 +30,8 @@ public class Landing extends AppCompatActivity {
     private TextView textView;
     private TextView quarantine;
     private Button ayes;
+    private long backPressedTime = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +40,7 @@ public class Landing extends AppCompatActivity {
         snackbar.show();
         super.onCreate(savedInstanceState);
         if (isFirstTime()) {
+          // Dialog Box
             new AlertDialog.Builder(this)
                     .setTitle("Message from the Developer")
                     .setMessage(R.string.sensitive)
@@ -62,10 +55,6 @@ public class Landing extends AppCompatActivity {
         }
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_landing);
-
-       //App Updater
-        AppUpdater appUpdater = new AppUpdater(this);
-        appUpdater.start();
 
 
         Calendar c = Calendar.getInstance();
@@ -129,6 +118,7 @@ public class Landing extends AppCompatActivity {
         graphic_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                view.performHapticFeedback(HapticFeedbackConstants.KEYBOARD_TAP);
                 moveToGraphPage();
             }
         });

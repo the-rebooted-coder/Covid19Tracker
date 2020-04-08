@@ -11,7 +11,7 @@
     <string name="indian_covid_dashboard">Indian Covid Dashboard</string>
     <string name="salute">WE STAND WITH EVERYONE FIGHTING ON THE FRONTLINES</string>
     <string name="helpline_numbers">Helpline Numbers</string>
-    <string name="licenses">LICENSES</string>
+    <string name="licenses">About</string>
     <string name="licensing">MIT License \n\nCopyright © 2020 Spandan Saxena\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the Software), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: \n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n \nTHE SOFTWARE IS PROVIDED AS IS, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</string>
     <string name="sources"><b>Sources:</b>  World Health Organization, John Hopkins school of Medicine, Covid19IndiaOrg, Bing and Google.</string>
     <string name="save">Share</string>
@@ -35,4 +35,10 @@
     <string name="wifi_on">Turn Wifi On</string>
     <string name="notification_description">Checking</string>
     <string name="update_app_url">https://www.dropbox.com/s/7oz6mebuah4ykr3/Covid-19%20Tracker.apk?dl=0</string>
+    <string name="sensitivemessage">The Information you are about to see contains toll of death(s) and people suffering from Coronavirus which might not be suitable for some audiences.\n<b>Proceed with Care</b> </string>
+    <string name="updatechecker">Check for Updates</string>
+    <string name="version_id">TextView</string>
+    <string name="trackerversion"><b>Current</b> Tracker Version: </string>
+    <string name="permissionrequester">Downloading the Update file requires access to the phone storage. Kindly grant the Permission to Proceed</string>
+    <string name="updatesorry">We know this isn\'t the convinient way to update, but as of now this is the only way</string>
 </resources>

@@ -3,13 +3,20 @@ package com.aaxena.covid19tracker;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.PictureInPictureParams;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Point;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Vibrator;
+import android.text.Html;
 import android.util.Rational;
 import android.view.Display;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -17,14 +24,19 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Calendar;
 
+import static com.aaxena.covid19tracker.StatisticView.PREFS_NAME;
+
 public class IndianView extends AppCompatActivity {
     private Button enter;
     private TextView quote;
+    public static final String PREFS_NAME = "MyPrefsFile1";
+    public CheckBox dontShowAgain;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +44,7 @@ public class IndianView extends AppCompatActivity {
         setContentView(R.layout.activity_indian_view);
         Toast.makeText(IndianView.this,
                 "Loading Dashboard", Toast.LENGTH_LONG).show();
+
         Calendar c = Calendar.getInstance();
         int timeOfDay = c.get(Calendar.HOUR_OF_DAY);
 
@@ -82,7 +95,8 @@ public class IndianView extends AppCompatActivity {
 
         enter = findViewById(R.id.enter_button);
         enter.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.O)
+            @RequiresApi
+                    (api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view)
             {
@@ -140,5 +154,66 @@ public class IndianView extends AppCompatActivity {
             }
         });
     }
+    @Override
+    protected void onResume() {
+        AlertDialog.Builder adb = new AlertDialog.Builder(this);
+        LayoutInflater adbInflater = LayoutInflater.from(this);
+        View eulaLayout = adbInflater.inflate(R.layout.checkbox, null);
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+        String skipMessage = settings.getString("skipMessage", "NOT checked");
 
+        dontShowAgain = (CheckBox) eulaLayout.findViewById(R.id.skip);
+        adb.setView(eulaLayout);
+        adb.setTitle("Before you Proceed");
+        adb.setCancelable(false);
+        adb.setMessage(Html.fromHtml(getString(R.string.sensitivemessage)));
+
+        adb.setPositiveButton("Show", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                String checkBoxResult = "NOT checked";
+
+                if (dontShowAgain.isChecked()) {
+                    checkBoxResult = "checked";
+                }
+
+                SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+                SharedPreferences.Editor editor = settings.edit();
+
+                editor.putString("skipMessage", checkBoxResult);
+                editor.commit();
+
+                // Do what you want to do on "OK" action
+
+                return;
+            }
+        });
+
+        adb.setNegativeButton("Go Back", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                String checkBoxResult = "NOT checked";
+
+                if (dontShowAgain.isChecked()) {
+                    checkBoxResult = "checked";
+                }
+
+                SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+                SharedPreferences.Editor editor = settings.edit();
+
+                editor.putString("skipMessage", checkBoxResult);
+                editor.commit();
+                Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                v.vibrate(30);
+                Intent intent = new Intent(IndianView.this, Landing.class);
+                startActivity(intent);
+
+                return;
+            }
+        });
+
+        if (!skipMessage.equals("checked")) {
+            adb.show();
+        }
+
+        super.onResume();
+    }
 }
