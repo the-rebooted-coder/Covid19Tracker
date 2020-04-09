@@ -92,32 +92,34 @@ public class IndianView extends AppCompatActivity {
             quote.setText(R.string.quote111);
         }
         //PiP Mode
+        if (Build.VERSION.SDK_INT > 26) {
+            enter = findViewById(R.id.enter_button);
+            enter.setOnClickListener(new View.OnClickListener() {
+                @RequiresApi
+                        (api = Build.VERSION_CODES.O)
+                @Override
+                public void onClick(View view) {
+                    Display d = getWindowManager()
+                            .getDefaultDisplay();
+                    Point p = new Point();
+                    d.getSize(p);
+                    int width = p.x;
+                    int height = p.y;
 
-        enter = findViewById(R.id.enter_button);
-        enter.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi
-                    (api = Build.VERSION_CODES.O)
-            @Override
-            public void onClick(View view)
-            {
-                Display d = getWindowManager()
-                        .getDefaultDisplay();
-                Point p = new Point();
-                d.getSize(p);
-                int width = p.x;
-                int height = p.y;
-
-                Rational ratio
-                        = new Rational(width, height);
-                PictureInPictureParams.Builder
-                        pip_Builder
-                        = new PictureInPictureParams
-                        .Builder();
-                pip_Builder.setAspectRatio(ratio).build();
-                enterPictureInPictureMode(pip_Builder.build());
-
-            }
-        });
+                    Rational ratio
+                            = new Rational(width, height);
+                    PictureInPictureParams.Builder
+                            pip_Builder
+                            = new PictureInPictureParams
+                            .Builder();
+                    pip_Builder.setAspectRatio(ratio).build();
+                    enterPictureInPictureMode(pip_Builder.build());
+                }
+            });
+        } else{
+            enter = findViewById(R.id.enter_button);
+            enter.setVisibility(View.INVISIBLE);
+        }
 
         //End of PiP
         final WebView webview = (WebView) findViewById(R.id.browser);
