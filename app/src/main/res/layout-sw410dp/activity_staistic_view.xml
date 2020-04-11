@@ -9,23 +9,20 @@
 
     <WebView
         android:id="@+id/webview"
-        android:layout_width="602dp"
-        android:layout_height="592dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
+        android:layout_width="414dp"
+        android:layout_height="450dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.023"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.623">
+        app:layout_constraintVertical_bias="0.862">
 
     </WebView>
 
     <EditText
         android:id="@+id/findBox"
-        android:layout_width="237dp"
-        android:layout_height="56dp"
+        android:layout_width="326dp"
+        android:layout_height="107dp"
         android:background="@drawable/roundedbutton"
         android:fontFamily="@font/productsans"
         android:hint="@string/search_for_country"
@@ -39,24 +36,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.063" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="167dp"
-        android:layout_marginEnd="167dp"
-        android:layout_marginBottom="52dp"
-        android:background="@color/byellow"
-        android:fontFamily="@font/productsansitalic"
-        android:text="@string/landcape"
-        android:textColor="@color/design_default_color_on_secondary"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/findBox"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.47000003" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

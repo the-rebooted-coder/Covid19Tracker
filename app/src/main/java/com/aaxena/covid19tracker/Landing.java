@@ -1,10 +1,16 @@
 package com.aaxena.covid19tracker;
 
+import android.app.AlarmManager;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.wifi.WifiManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.view.HapticFeedbackConstants;
@@ -17,6 +23,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -30,8 +38,7 @@ public class Landing extends AppCompatActivity {
     private TextView textView;
     private TextView quarantine;
     private Button ayes;
-    private long backPressedTime = 0;
-
+    private Button information;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +49,7 @@ public class Landing extends AppCompatActivity {
         if (isFirstTime()) {
           // Dialog Box
             new AlertDialog.Builder(this)
-                    .setTitle("Message from the Developer")
+                    .setTitle("An Open Message")
                     .setMessage(R.string.sensitive)
                     .setPositiveButton("I Understand", new DialogInterface.OnClickListener() {
                         @Override
@@ -55,6 +62,7 @@ public class Landing extends AppCompatActivity {
         }
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_landing);
+        createNotificationChannel();
 
 
         Calendar c = Calendar.getInstance();
@@ -136,6 +144,13 @@ public class Landing extends AppCompatActivity {
                 moveToLicensePage();
             }
         });
+        information = findViewById(R.id.information);
+        information.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                moveToInformationPage();
+            }
+        });
     }
 
     private void moveToStaticPage() {
@@ -143,6 +158,16 @@ public class Landing extends AppCompatActivity {
         v.vibrate(38);
         Intent intent = new Intent(Landing.this, StatisticView.class);
         startActivity(intent);
+        Intent intent1 = new Intent(Landing.this, ReminderBroadcast.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(Landing.this, 0, intent1, 0);
+
+        AlarmManager alarmManager =(AlarmManager)getSystemService(ALARM_SERVICE);
+
+        long timeAtButtonClick = System.currentTimeMillis();
+
+        long tenSecondsInMillis = 3600000+10;
+
+        alarmManager.set(AlarmManager.RTC_WAKEUP, timeAtButtonClick + tenSecondsInMillis, pendingIntent);
     }
 
     private void moveToGraphPage() {
@@ -150,6 +175,16 @@ public class Landing extends AppCompatActivity {
         v.vibrate(38);
         Intent intent = new Intent(Landing.this, GraphicView.class);
         startActivity(intent);
+        Intent intent1 = new Intent(Landing.this, ReminderBroadcast.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(Landing.this, 0, intent1, 0);
+
+        AlarmManager alarmManager =(AlarmManager)getSystemService(ALARM_SERVICE);
+
+        long timeAtButtonClick = System.currentTimeMillis();
+
+        long tenSecondsInMillis = 3600000+10;
+
+        alarmManager.set(AlarmManager.RTC_WAKEUP, timeAtButtonClick + tenSecondsInMillis, pendingIntent);
     }
 
     private void moveToBharatPage() {
@@ -157,6 +192,16 @@ public class Landing extends AppCompatActivity {
         v.vibrate(38);
         Intent intent = new Intent(Landing.this, IndianView.class);
         startActivity(intent);
+        Intent intent1 = new Intent(Landing.this, ReminderBroadcast.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(Landing.this, 0, intent1, 0);
+
+        AlarmManager alarmManager =(AlarmManager)getSystemService(ALARM_SERVICE);
+
+        long timeAtButtonClick = System.currentTimeMillis();
+
+        long tenSecondsInMillis = 3600000+10;
+
+        alarmManager.set(AlarmManager.RTC_WAKEUP, timeAtButtonClick + tenSecondsInMillis, pendingIntent);
     }
 
     private void moveToLicensePage() {
@@ -164,6 +209,32 @@ public class Landing extends AppCompatActivity {
         v.vibrate(38);
         Intent intent = new Intent(Landing.this, Licenses.class);
         startActivity(intent);
+        Intent intent1 = new Intent(Landing.this, ReminderBroadcast.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(Landing.this, 0, intent1, 0);
+
+        AlarmManager alarmManager =(AlarmManager)getSystemService(ALARM_SERVICE);
+
+        long timeAtButtonClick = System.currentTimeMillis();
+
+        long tenSecondsInMillis = 3600000+10;
+
+        alarmManager.set(AlarmManager.RTC_WAKEUP, timeAtButtonClick + tenSecondsInMillis, pendingIntent);
+    }
+    private void moveToInformationPage() {
+        Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        v.vibrate(38);
+        Intent intent = new Intent(Landing.this, Landing2.class);
+        startActivity(intent);
+        Intent intent1 = new Intent(Landing.this, ReminderBroadcast.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(Landing.this, 0, intent1, 0);
+
+        AlarmManager alarmManager =(AlarmManager)getSystemService(ALARM_SERVICE);
+
+        long timeAtButtonClick = System.currentTimeMillis();
+
+        long tenSecondsInMillis = 1+10;
+
+        alarmManager.set(AlarmManager.RTC_WAKEUP, timeAtButtonClick + tenSecondsInMillis, pendingIntent);
     }
 
     private boolean isFirstTime() {
@@ -184,6 +255,17 @@ public class Landing extends AppCompatActivity {
         public void onClick(View v) {
             WifiManager wifi = (WifiManager) getSystemService(Context.WIFI_SERVICE);
             wifi.setWifiEnabled(true);
+        }
+    }
+    private void createNotificationChannel(){
+        if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.O){
+            CharSequence name = "Reminder Channel";
+            String description = "Channel for Reminder";
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel("Reminder", name, importance);
+            channel.setDescription(description);
+            NotificationManager notificationManager  = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
         }
     }
 }

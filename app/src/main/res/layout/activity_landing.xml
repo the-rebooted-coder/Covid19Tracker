@@ -23,51 +23,74 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.094" />
 
-    <Button
-        android:id="@+id/statistical"
-        android:layout_width="237dp"
-        android:layout_height="58dp"
-        android:background="@drawable/roundedbutton"
-        android:fontFamily="@font/productsans"
-        android:text="@string/statistical_information"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="265dp"
+        android:layout_height="327dp"
+        android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/graphical"
-        app:layout_constraintVertical_bias="0.076" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.379">
 
-    <Button
-        android:id="@+id/bharat"
-        android:layout_width="237dp"
-        android:layout_height="58dp"
-        android:background="@drawable/roundedbutton"
-        android:fontFamily="@font/productsans"
-        android:text="@string/indian_covid_dashboard"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/statistical"
-        app:layout_constraintVertical_bias="0.110000014" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="15dp"
+            android:paddingEnd="0dp"
+            android:scrollbars="vertical"
+            android:verticalScrollbarPosition="left">
 
-    <Button
-        android:id="@+id/graphical"
-        android:layout_width="237dp"
-        android:layout_height="58dp"
-        android:background="@drawable/roundedbutton"
-        android:fontFamily="@font/productsans"
-        android:hapticFeedbackEnabled="true"
-        android:text="@string/graphical_information"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/greeting"
-        app:layout_constraintVertical_bias="0.152" />
+            <Button
+                android:id="@+id/statistical"
+                android:layout_width="237dp"
+                android:layout_height="58dp"
+                android:background="@drawable/roundedbutton"
+                android:fontFamily="@font/productsans"
+                android:text="@string/statistical_information"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+
+            <Button
+                android:id="@+id/bharat"
+                android:layout_width="237dp"
+                android:layout_height="58dp"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/roundedbutton"
+                android:fontFamily="@font/productsans"
+                android:text="@string/indian_covid_dashboard"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/graphical"
+                android:layout_width="237dp"
+                android:layout_height="58dp"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/roundedbutton"
+                android:fontFamily="@font/productsans"
+                android:hapticFeedbackEnabled="true"
+                android:text="@string/graphical_information"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/information"
+                android:layout_width="237dp"
+                android:layout_height="58dp"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/roundedbutton"
+                android:fontFamily="@font/productsans"
+                android:text="@string/info"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+    </ScrollView>
 
     <Button
         android:id="@+id/license"
@@ -81,8 +104,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.173"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bharat"
-        app:layout_constraintVertical_bias="0.812" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.92" />
 
     <TextView
         android:id="@+id/textView"
@@ -104,14 +127,14 @@
         android:layout_height="wrap_content"
         android:background="@drawable/roundedquarantinebutton"
         android:fontFamily="@font/productsans"
-        android:text="YES"
+        android:text="@string/ayes"
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.842"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.929" />
+        app:layout_constraintVertical_bias="0.90999997" />
 
     <TextView
         android:id="@+id/quaratinetxt"

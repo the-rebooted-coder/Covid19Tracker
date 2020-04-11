@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.text.method.ScrollingMovementMethod;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Licenses extends AppCompatActivity {
 private TextView license;
@@ -30,6 +32,7 @@ private Button settings;
         });
         license = findViewById(R.id.license);
         license.setMovementMethod(new ScrollingMovementMethod());
+
     }
     private void moveToUpdatePage() {
         Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);

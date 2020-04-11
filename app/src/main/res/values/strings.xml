@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">Covid19 Tracker</string>
+    <string name="app_name">Covid Tracker</string>
     <string name="coronavirus_image">coronavirusimage</string>
-    <string name="app_title">Covid-19 Tracker</string>
+    <string name="app_title">Covid\nTracker</string>
     <string name="greeting">Welcome to the Covid-19 Tracker</string>
     <string name="graph_view">Graph View</string>
     <string name="statistical_information">statistical information</string>
@@ -41,4 +41,14 @@
     <string name="trackerversion"><b>Current</b> Tracker Version: </string>
     <string name="permissionrequester">Downloading the Update file requires access to the phone storage. Kindly grant the Permission to Proceed</string>
     <string name="updatesorry">We know this isn\'t the convinient way to update, but as of now this is the only way</string>
+    <string name="search_for_country">Search for Country</string>
+    <string name="landcape">Put Device to Landscape for more details</string>
+    <string name="info">Precautionary Information</string>
+    <string name="title_activity_information">Information</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="view_pdf">View PDF</string>
+    <string name="helplinenos">Statewise Helpline Numbers</string>
+    <string name="ayes">YES</string>
 </resources>

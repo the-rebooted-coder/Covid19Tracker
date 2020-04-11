@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.graphics.Point;
 import android.os.Build;
 import android.os.Bundle;
@@ -37,6 +38,8 @@ public class IndianView extends AppCompatActivity {
     private TextView quote;
     public static final String PREFS_NAME = "MyPrefsFile1";
     public CheckBox dontShowAgain;
+    private TextView salutation;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -92,6 +95,7 @@ public class IndianView extends AppCompatActivity {
             quote.setText(R.string.quote111);
         }
         //PiP Mode
+
         if (Build.VERSION.SDK_INT > 26) {
             enter = findViewById(R.id.enter_button);
             enter.setOnClickListener(new View.OnClickListener() {
@@ -146,7 +150,7 @@ public class IndianView extends AppCompatActivity {
         webview.measure(100,100);
         webview.getSettings().setUseWideViewPort(true);
         webview.getSettings().setLoadWithOverviewMode(true);
-        webview.scrollTo(0, 224);
+        webview.scrollTo(0, 285);
         webview.setVerticalScrollBarEnabled(false);
         webview.setHorizontalScrollBarEnabled(false);
         webview.setOnTouchListener(new View.OnTouchListener() {
@@ -217,5 +221,23 @@ public class IndianView extends AppCompatActivity {
         }
 
         super.onResume();
+    }
+    @Override
+    public void onPictureInPictureModeChanged (boolean isInPictureInPictureMode, Configuration newConfig) {
+        if (isInPictureInPictureMode) {
+            enter=findViewById(R.id.enter_button);
+            enter.setVisibility(View.INVISIBLE);
+            quote=findViewById(R.id.quote);
+            quote.setVisibility(View.INVISIBLE);
+            salutation=findViewById(R.id.salute);
+            salutation.setVisibility(View.INVISIBLE);
+        } else {
+            enter=findViewById(R.id.enter_button);
+            enter.setVisibility(View.VISIBLE);
+            quote=findViewById(R.id.quote);
+            quote.setVisibility(View.VISIBLE);
+            salutation=findViewById(R.id.salute);
+            salutation.setVisibility(View.VISIBLE);
+        }
     }
 }
