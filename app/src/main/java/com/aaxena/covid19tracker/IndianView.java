@@ -109,15 +109,11 @@ public class IndianView extends AppCompatActivity {
                     d.getSize(p);
                     int width = p.x;
                     int height = p.y;
+                    Rational aspectRatio = new Rational(5, 4);
 
-                    Rational ratio
-                            = new Rational(width, height);
-                    PictureInPictureParams.Builder
-                            pip_Builder
-                            = new PictureInPictureParams
-                            .Builder();
-                    pip_Builder.setAspectRatio(ratio).build();
-                    enterPictureInPictureMode(pip_Builder.build());
+                    PictureInPictureParams params = new PictureInPictureParams.Builder()
+                            .setAspectRatio(aspectRatio).build();
+                    enterPictureInPictureMode(params);
                 }
             });
         } else{

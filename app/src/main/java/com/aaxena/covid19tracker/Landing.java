@@ -9,6 +9,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.AudioManager;
+import android.net.Uri;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -227,7 +229,6 @@ public class Landing extends AppCompatActivity {
         startActivity(intent);
         Intent intent1 = new Intent(Landing.this, ReminderBroadcast.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(Landing.this, 0, intent1, 0);
-
         AlarmManager alarmManager =(AlarmManager)getSystemService(ALARM_SERVICE);
 
         long timeAtButtonClick = System.currentTimeMillis();
@@ -266,6 +267,7 @@ public class Landing extends AppCompatActivity {
             channel.setDescription(description);
             NotificationManager notificationManager  = getSystemService(NotificationManager.class);
             notificationManager.createNotificationChannel(channel);
+
         }
     }
 }
