@@ -9,7 +9,28 @@
         <intent
             android:action="android.intent.action.VIEW"
             android:targetPackage="com.aaxena.covid19tracker"
-            android:targetClass="com.aaxena.covid19tracker.SplashScreen"/>
+            android:targetClass="com.aaxena.covid19tracker.IndianView"/>
     </shortcut>
-    <!-- Specify more shortcuts here. -->
+    <shortcut
+        android:shortcutId="Statistical View"
+        android:enabled="true"
+        android:icon="@drawable/statistical"
+        android:shortcutShortLabel="@string/stsshortshort"
+        android:shortcutLongLabel="@string/stsshortlong">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.aaxena.covid19tracker"
+            android:targetClass="com.aaxena.covid19tracker.StatisticView"/>
+    </shortcut>
+    <shortcut
+        android:shortcutId="Geographical View"
+        android:enabled="true"
+        android:icon="@drawable/globe"
+        android:shortcutShortLabel="@string/gblshortshort"
+        android:shortcutLongLabel="@string/gblshortlong">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.aaxena.covid19tracker"
+            android:targetClass="com.aaxena.covid19tracker.GraphicView"/>
+    </shortcut>
 </shortcuts>

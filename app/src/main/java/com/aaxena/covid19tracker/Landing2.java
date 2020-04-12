@@ -34,6 +34,21 @@ public class Landing2 extends AppCompatActivity {
 
 
         call = findViewById(R.id.callto);
+        call.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Vibrator v7 = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                v7.vibrate(39);
+                if (ActivityCompat.checkSelfPermission(Landing2.this,Manifest.permission.CALL_PHONE)== PackageManager.PERMISSION_GRANTED) {
+                    Intent callIntent = new Intent(Intent.ACTION_CALL);
+                    callIntent.setData(Uri.parse("tel:+911123978046"));
+                    startActivity(callIntent);
+                } else
+                {
+                    requestCallPermission();
+                }
+            }
+        });
         new MaterialIntroView.Builder(this)
                 .enableDotAnimation(true)
                 .enableIcon(false)
@@ -49,21 +64,6 @@ public class Landing2 extends AppCompatActivity {
                 .setUsageId("intro_card") //THIS SHOULD BE UNIQUE ID
                 .setMaskColor(getResources().getColor(R.color.bluetrans))
                 .show();
-        call.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Vibrator v7 = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-                v7.vibrate(39);
-                if (ActivityCompat.checkSelfPermission(Landing2.this,Manifest.permission.WRITE_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED) {
-                    Intent callIntent = new Intent(Intent.ACTION_CALL);
-                    callIntent.setData(Uri.parse("tel:+911123978046"));
-                    startActivity(callIntent);
-                } else
-                {
-                    requestCallPermission();
-                }
-            }
-        });
 
         helplinenos = findViewById(R.id.helpline);
         helplinenos.setOnClickListener(new View.OnClickListener() {

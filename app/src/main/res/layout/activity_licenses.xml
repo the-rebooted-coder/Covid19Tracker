@@ -56,8 +56,8 @@
 
     <Button
         android:id="@+id/updater"
-        android:layout_width="194dp"
-        android:layout_height="43dp"
+        android:layout_width="254dp"
+        android:layout_height="57dp"
         android:layout_marginTop="52dp"
         android:backgroundTint="#FF9800"
         android:fontFamily="@font/productsans"

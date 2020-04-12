@@ -59,7 +59,6 @@ public class IndianView extends AppCompatActivity {
                     .setFocusType(Focus.MINIMUM)
                     .setDelayMillis(200)
                     .enableFadeAnimation(true)
-                    .performClick(true)
                     .dismissOnTouch(true)
                     .setInfoText(getString(R.string.pipmove))
                     .setShape(ShapeType.CIRCLE)
@@ -158,6 +157,8 @@ public class IndianView extends AppCompatActivity {
             quote.setVisibility(View.INVISIBLE);
             salutation=findViewById(R.id.salute);
             salutation.setVisibility(View.INVISIBLE);
+            pip = findViewById(R.id.pip);
+            pip.setVisibility(View.INVISIBLE);
         } else {
             quote=findViewById(R.id.quote);
             quote.setVisibility(View.VISIBLE);
