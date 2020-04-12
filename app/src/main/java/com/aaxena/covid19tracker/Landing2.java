@@ -10,7 +10,6 @@ import android.os.Vibrator;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -25,14 +24,14 @@ public class Landing2 extends AppCompatActivity {
     private int STORAGE_PERMISSION_CODE = 2;
     private Button helplinenos;
     private Button call;
-            TextView textView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing2);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        textView = findViewById(R.id.textView5);
+
+        call = findViewById(R.id.callto);
         new MaterialIntroView.Builder(this)
                 .enableDotAnimation(true)
                 .enableIcon(false)
@@ -41,14 +40,13 @@ public class Landing2 extends AppCompatActivity {
                 .setDelayMillis(500)
                 .enableFadeAnimation(true)
                 .performClick(true)
-                .setInfoText("Hi There! Click this card and see what happens.")
-                .setShape(ShapeType.RECTANGLE)
-                .setTarget(textView)
+                .dismissOnTouch(true)
+                .setInfoText("Tap Here to Call The National State Helpline")
+                .setShape(ShapeType.CIRCLE)
+                .setTarget(call)
                 .setUsageId("intro_card") //THIS SHOULD BE UNIQUE ID
                 .setMaskColor(getResources().getColor(R.color.bluetrans))
                 .show();
-
-        call = findViewById(R.id.callto);
         call.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -41,7 +41,7 @@
     <string name="trackerversion"><b>Current</b> Tracker Version: </string>
     <string name="permissionrequester">Downloading the Update file requires access to the phone storage. Kindly grant the Permission to Proceed</string>
     <string name="updatesorry">We know this isn\'t the convinient way to update, but as of now this is the only way</string>
-    <string name="search_for_country">Search for Country</string>
+    <string name="search_for_country">Search a Country</string>
     <string name="landcape">Put Device to Landscape for more details</string>
     <string name="info">Precautionary Information</string>
     <string name="title_activity_information">Information</string>
@@ -53,4 +53,6 @@
     <string name="ayes">YES</string>
     <string name="indshortlong">Shortcut opening the Indian Covid Dashboard</string>
     <string name="indshortshort">CovidDashboard</string>
+    <string name="pipmove">Picture in Picture Mode Has Moved!\nTap <b>Home</b> button to Get into PiP Mode</string>
+    <string name="newinfo">Search for any country!</string>
 </resources>

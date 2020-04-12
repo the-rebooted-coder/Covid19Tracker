@@ -27,6 +27,11 @@ import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Calendar;
 
+import co.mobiwise.materialintro.shape.Focus;
+import co.mobiwise.materialintro.shape.FocusGravity;
+import co.mobiwise.materialintro.shape.ShapeType;
+import co.mobiwise.materialintro.view.MaterialIntroView;
+
 public class Landing extends AppCompatActivity {
     private Button static_view;
     private Button graphic_view;
@@ -61,9 +66,6 @@ public class Landing extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_landing);
         createNotificationChannel();
-
-
-
 
 
         Calendar c = Calendar.getInstance();

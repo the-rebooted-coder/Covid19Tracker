@@ -31,11 +31,16 @@ import android.widget.Toast;
 
 import java.util.Calendar;
 
-import static com.aaxena.covid19tracker.StatisticView.PREFS_NAME;
+import co.mobiwise.materialintro.shape.Focus;
+import co.mobiwise.materialintro.shape.FocusGravity;
+import co.mobiwise.materialintro.shape.ShapeType;
+import co.mobiwise.materialintro.view.MaterialIntroView;
+
 
 public class IndianView extends AppCompatActivity {
     private TextView quote;
     private TextView salutation;
+    private TextView pip;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +49,25 @@ public class IndianView extends AppCompatActivity {
         setContentView(R.layout.activity_indian_view);
         Toast.makeText(IndianView.this,
                 "Loading Dashboard", Toast.LENGTH_LONG).show();
+
+        if (Build.VERSION.SDK_INT > 26) {
+            pip = findViewById(R.id.pip);
+            new MaterialIntroView.Builder(this)
+                    .enableDotAnimation(true)
+                    .enableIcon(false)
+                    .setFocusGravity(FocusGravity.CENTER)
+                    .setFocusType(Focus.MINIMUM)
+                    .setDelayMillis(200)
+                    .enableFadeAnimation(true)
+                    .performClick(true)
+                    .dismissOnTouch(true)
+                    .setInfoText(getString(R.string.pipmove))
+                    .setShape(ShapeType.CIRCLE)
+                    .setTarget(pip)
+                    .setUsageId("pip") //THIS SHOULD BE UNIQUE ID
+                    .setMaskColor(getResources().getColor(R.color.bluetrans))
+                    .show();
+        }
 
         Calendar c = Calendar.getInstance();
         int timeOfDay = c.get(Calendar.HOUR_OF_DAY);
@@ -158,10 +182,7 @@ public class IndianView extends AppCompatActivity {
                                 .setAspectRatio(aspectRatio).build();
                         enterPictureInPictureMode(params);
 
-            } else{
-
             }
-
-            //End of PiP
+        //End of PiP
         }
     }
