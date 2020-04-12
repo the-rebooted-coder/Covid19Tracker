@@ -4,29 +4,24 @@ import android.app.AlarmManager;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.media.AudioManager;
-import android.net.Uri;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Vibrator;
-import android.view.HapticFeedbackConstants;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -61,10 +56,14 @@ public class Landing extends AppCompatActivity {
                         }
                     })
                     .create().show();
+
         }
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_landing);
         createNotificationChannel();
+
+
+
 
 
         Calendar c = Calendar.getInstance();
@@ -121,6 +120,8 @@ public class Landing extends AppCompatActivity {
         static_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                v.vibrate(38);
                 moveToStaticPage();
             }
         });
@@ -128,7 +129,8 @@ public class Landing extends AppCompatActivity {
         graphic_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                view.performHapticFeedback(HapticFeedbackConstants.KEYBOARD_TAP);
+                Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                v.vibrate(38);
                 moveToGraphPage();
             }
         });
@@ -136,6 +138,8 @@ public class Landing extends AppCompatActivity {
         bharat_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                v.vibrate(38);
                 moveToBharatPage();
             }
         });
@@ -143,6 +147,8 @@ public class Landing extends AppCompatActivity {
         license.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                v.vibrate(38);
                 moveToLicensePage();
             }
         });
@@ -150,14 +156,14 @@ public class Landing extends AppCompatActivity {
         information.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                v.vibrate(38);
                 moveToInformationPage();
             }
         });
     }
 
     private void moveToStaticPage() {
-        Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-        v.vibrate(38);
         Intent intent = new Intent(Landing.this, StatisticView.class);
         startActivity(intent);
         Intent intent1 = new Intent(Landing.this, ReminderBroadcast.class);
@@ -173,8 +179,6 @@ public class Landing extends AppCompatActivity {
     }
 
     private void moveToGraphPage() {
-        Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-        v.vibrate(38);
         Intent intent = new Intent(Landing.this, GraphicView.class);
         startActivity(intent);
         Intent intent1 = new Intent(Landing.this, ReminderBroadcast.class);
@@ -190,8 +194,6 @@ public class Landing extends AppCompatActivity {
     }
 
     private void moveToBharatPage() {
-        Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-        v.vibrate(38);
         Intent intent = new Intent(Landing.this, IndianView.class);
         startActivity(intent);
         Intent intent1 = new Intent(Landing.this, ReminderBroadcast.class);
@@ -207,8 +209,6 @@ public class Landing extends AppCompatActivity {
     }
 
     private void moveToLicensePage() {
-        Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-        v.vibrate(38);
         Intent intent = new Intent(Landing.this, Licenses.class);
         startActivity(intent);
         Intent intent1 = new Intent(Landing.this, ReminderBroadcast.class);
@@ -222,9 +222,8 @@ public class Landing extends AppCompatActivity {
 
         alarmManager.set(AlarmManager.RTC_WAKEUP, timeAtButtonClick + tenSecondsInMillis, pendingIntent);
     }
+
     private void moveToInformationPage() {
-        Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-        v.vibrate(38);
         Intent intent = new Intent(Landing.this, Landing2.class);
         startActivity(intent);
         Intent intent1 = new Intent(Landing.this, ReminderBroadcast.class);

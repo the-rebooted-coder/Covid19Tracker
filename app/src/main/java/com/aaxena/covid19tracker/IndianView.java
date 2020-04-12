@@ -34,10 +34,7 @@ import java.util.Calendar;
 import static com.aaxena.covid19tracker.StatisticView.PREFS_NAME;
 
 public class IndianView extends AppCompatActivity {
-    private Button enter;
     private TextView quote;
-    public static final String PREFS_NAME = "MyPrefsFile1";
-    public CheckBox dontShowAgain;
     private TextView salutation;
 
     @Override
@@ -94,34 +91,7 @@ public class IndianView extends AppCompatActivity {
             quote=findViewById(R.id.quote);
             quote.setText(R.string.quote111);
         }
-        //PiP Mode
 
-        if (Build.VERSION.SDK_INT > 26) {
-            enter = findViewById(R.id.enter_button);
-            enter.setOnClickListener(new View.OnClickListener() {
-                @RequiresApi
-                        (api = Build.VERSION_CODES.O)
-                @Override
-                public void onClick(View view) {
-                    Display d = getWindowManager()
-                            .getDefaultDisplay();
-                    Point p = new Point();
-                    d.getSize(p);
-                    int width = p.x;
-                    int height = p.y;
-                    Rational aspectRatio = new Rational(5, 4);
-
-                    PictureInPictureParams params = new PictureInPictureParams.Builder()
-                            .setAspectRatio(aspectRatio).build();
-                    enterPictureInPictureMode(params);
-                }
-            });
-        } else{
-            enter = findViewById(R.id.enter_button);
-            enter.setVisibility(View.INVISIBLE);
-        }
-
-        //End of PiP
         final WebView webview = (WebView) findViewById(R.id.browser);
         webview.getSettings().setJavaScriptEnabled(true);
         webview.getSettings().setDomStorageEnabled(true);
@@ -156,84 +126,42 @@ public class IndianView extends AppCompatActivity {
             }
         });
     }
-    @Override
-    protected void onResume() {
-        AlertDialog.Builder adb = new AlertDialog.Builder(this);
-        LayoutInflater adbInflater = LayoutInflater.from(this);
-        View eulaLayout = adbInflater.inflate(R.layout.checkbox, null);
-        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-        String skipMessage = settings.getString("skipMessage", "NOT checked");
 
-        dontShowAgain = (CheckBox) eulaLayout.findViewById(R.id.skip);
-        adb.setView(eulaLayout);
-        adb.setTitle("Before you Proceed");
-        adb.setCancelable(false);
-        adb.setMessage(Html.fromHtml(getString(R.string.sensitivemessage)));
-
-        adb.setPositiveButton("Show", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                String checkBoxResult = "NOT checked";
-
-                if (dontShowAgain.isChecked()) {
-                    checkBoxResult = "checked";
-                }
-
-                SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-                SharedPreferences.Editor editor = settings.edit();
-
-                editor.putString("skipMessage", checkBoxResult);
-                editor.commit();
-
-                // Do what you want to do on "OK" action
-
-                return;
-            }
-        });
-
-        adb.setNegativeButton("Go Back", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                String checkBoxResult = "NOT checked";
-
-                if (dontShowAgain.isChecked()) {
-                    checkBoxResult = "checked";
-                }
-
-                SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-                SharedPreferences.Editor editor = settings.edit();
-
-                editor.putString("skipMessage", checkBoxResult);
-                editor.commit();
-                Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-                v.vibrate(30);
-                Intent intent = new Intent(IndianView.this, Landing.class);
-                startActivity(intent);
-
-                return;
-            }
-        });
-
-        if (!skipMessage.equals("checked")) {
-            adb.show();
-        }
-
-        super.onResume();
-    }
     @Override
     public void onPictureInPictureModeChanged (boolean isInPictureInPictureMode, Configuration newConfig) {
         if (isInPictureInPictureMode) {
-            enter=findViewById(R.id.enter_button);
-            enter.setVisibility(View.INVISIBLE);
             quote=findViewById(R.id.quote);
             quote.setVisibility(View.INVISIBLE);
             salutation=findViewById(R.id.salute);
             salutation.setVisibility(View.INVISIBLE);
         } else {
-            enter=findViewById(R.id.enter_button);
-            enter.setVisibility(View.VISIBLE);
             quote=findViewById(R.id.quote);
             quote.setVisibility(View.VISIBLE);
             salutation=findViewById(R.id.salute);
             salutation.setVisibility(View.VISIBLE);
         }
     }
-}
+    @Override
+    public void onUserLeaveHint () {
+            //PiP Mode
+            if (Build.VERSION.SDK_INT > 26) {
+
+                        Display d = getWindowManager()
+                                .getDefaultDisplay();
+                        Point p = new Point();
+                        d.getSize(p);
+                        int width = p.x;
+                        int height = p.y;
+                        Rational aspectRatio = new Rational(5, 4);
+
+                        PictureInPictureParams params = new PictureInPictureParams.Builder()
+                                .setAspectRatio(aspectRatio).build();
+                        enterPictureInPictureMode(params);
+
+            } else{
+
+            }
+
+            //End of PiP
+        }
+    }

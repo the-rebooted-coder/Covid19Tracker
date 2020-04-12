@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:shortcutId="Indian Dashboard"
+        android:enabled="true"
+        android:icon="@drawable/indian"
+        android:shortcutShortLabel="@string/indshortshort"
+        android:shortcutLongLabel="@string/indshortlong">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.aaxena.covid19tracker"
+            android:targetClass="com.aaxena.covid19tracker.SplashScreen"/>
+    </shortcut>
+    <!-- Specify more shortcuts here. -->
+</shortcuts>

@@ -31,8 +31,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.379">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -44,10 +43,22 @@
             android:verticalScrollbarPosition="left">
 
             <Button
+                android:id="@+id/graphical"
+                android:layout_width="237dp"
+                android:layout_height="58dp"
+                android:background="@drawable/dp"
+                android:fontFamily="@font/productsans"
+                android:hapticFeedbackEnabled="true"
+                android:text="@string/graphical_information"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+            <Button
                 android:id="@+id/statistical"
                 android:layout_width="237dp"
                 android:layout_height="58dp"
-                android:background="@drawable/roundedbutton"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/dp"
                 android:fontFamily="@font/productsans"
                 android:text="@string/statistical_information"
                 android:textColor="#FFFFFF"
@@ -59,21 +70,9 @@
                 android:layout_width="237dp"
                 android:layout_height="58dp"
                 android:layout_marginTop="50dp"
-                android:background="@drawable/roundedbutton"
+                android:background="@drawable/dp"
                 android:fontFamily="@font/productsans"
                 android:text="@string/indian_covid_dashboard"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp" />
-
-            <Button
-                android:id="@+id/graphical"
-                android:layout_width="237dp"
-                android:layout_height="58dp"
-                android:layout_marginTop="50dp"
-                android:background="@drawable/roundedbutton"
-                android:fontFamily="@font/productsans"
-                android:hapticFeedbackEnabled="true"
-                android:text="@string/graphical_information"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp" />
 
@@ -82,7 +81,7 @@
                 android:layout_width="237dp"
                 android:layout_height="58dp"
                 android:layout_marginTop="50dp"
-                android:background="@drawable/roundedbutton"
+                android:background="@drawable/mcity"
                 android:fontFamily="@font/productsans"
                 android:text="@string/info"
                 android:textColor="#FFFFFF"

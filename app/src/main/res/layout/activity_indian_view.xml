@@ -39,19 +39,6 @@
         app:layout_constraintTop_toBottomOf="@+id/browser"
         app:layout_constraintVertical_bias="1.0" />
 
-    <Button
-        android:id="@+id/enter_button"
-        android:layout_width="37dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/pip"
-        app:layout_constraintBottom_toTopOf="@+id/browser"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.961"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.944" />
-
     <TextView
         android:id="@+id/quote"
         android:layout_width="357dp"
