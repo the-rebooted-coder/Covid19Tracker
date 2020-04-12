@@ -205,7 +205,7 @@ public class Landing extends AppCompatActivity {
 
         long timeAtButtonClick = System.currentTimeMillis();
 
-        long tenSecondsInMillis = 3600000+10;
+        long tenSecondsInMillis = 300000+10;
 
         alarmManager.set(AlarmManager.RTC_WAKEUP, timeAtButtonClick + tenSecondsInMillis, pendingIntent);
     }
@@ -220,7 +220,7 @@ public class Landing extends AppCompatActivity {
 
         long timeAtButtonClick = System.currentTimeMillis();
 
-        long tenSecondsInMillis = 3600000+10;
+        long tenSecondsInMillis = 4900000+10;
 
         alarmManager.set(AlarmManager.RTC_WAKEUP, timeAtButtonClick + tenSecondsInMillis, pendingIntent);
     }
@@ -234,7 +234,7 @@ public class Landing extends AppCompatActivity {
 
         long timeAtButtonClick = System.currentTimeMillis();
 
-        long tenSecondsInMillis = 1+10;
+        long tenSecondsInMillis = 3600000+10;
 
         alarmManager.set(AlarmManager.RTC_WAKEUP, timeAtButtonClick + tenSecondsInMillis, pendingIntent);
     }

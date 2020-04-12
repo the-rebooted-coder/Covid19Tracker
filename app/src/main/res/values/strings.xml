@@ -50,6 +50,8 @@
     <string name="title_notifications">Notifications</string>
     <string name="view_pdf">View PDF</string>
     <string name="helplinenos">Statewise Helpline Numbers</string>
+    <string name="sickness">Things to Do if Sick!</string>
+    <string name="stop">How to Stop the Spread?</string>
     <string name="ayes">YES</string>
     <string name="indshortlong">Shortcut opening the Indian Covid Dashboard</string>
     <string name="indshortshort">CovidDashboard</string>

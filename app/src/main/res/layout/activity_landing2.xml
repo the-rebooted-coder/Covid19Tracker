@@ -24,6 +24,38 @@
         app:layout_constraintVertical_bias="0.19999999" />
 
     <Button
+        android:id="@+id/sick"
+        android:layout_width="237dp"
+        android:layout_height="58dp"
+        android:background="@drawable/roundedbutton"
+        android:fontFamily="@font/productsans"
+        android:hapticFeedbackEnabled="true"
+        android:text="@string/sickness"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/helpline"
+        app:layout_constraintVertical_bias="0.110000014" />
+
+    <Button
+        android:id="@+id/stop"
+        android:layout_width="237dp"
+        android:layout_height="58dp"
+        android:background="@drawable/roundedbutton"
+        android:fontFamily="@font/productsans"
+        android:hapticFeedbackEnabled="true"
+        android:text="@string/stop"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sick"
+        app:layout_constraintVertical_bias="0.110000014" />
+
+    <Button
         android:id="@+id/callto"
         android:layout_width="49dp"
         android:layout_height="49dp"

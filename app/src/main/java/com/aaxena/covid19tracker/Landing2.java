@@ -24,6 +24,8 @@ public class Landing2 extends AppCompatActivity {
     private int STORAGE_PERMISSION_CODE = 2;
     private Button helplinenos;
     private Button call;
+    private Button sick;
+    private Button stop;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,11 +70,33 @@ public class Landing2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Vibrator v7 = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-                v7.vibrate(30);
+                v7.vibrate(28);
                 Intent intent = new Intent(Landing2.this, Information.class);
                 startActivity(intent);
             }
         });
+        sick = findViewById(R.id.sick);
+        sick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Vibrator v7 = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                v7.vibrate(28);
+                Intent intent = new Intent(Landing2.this, Sickness.class);
+                startActivity(intent);
+            }
+        });
+
+        stop = findViewById(R.id.stop);
+        stop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Vibrator v7 = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                v7.vibrate(28);
+                Intent intent = new Intent(Landing2.this, Stopping.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void requestCallPermission() {
