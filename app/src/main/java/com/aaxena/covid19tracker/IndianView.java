@@ -115,7 +115,7 @@ public class IndianView extends AppCompatActivity {
             quote.setText(R.string.quote111);
         }
 
-        final WebView webview = (WebView) findViewById(R.id.browser);
+        final WebView webview = findViewById(R.id.browser);
         webview.getSettings().setJavaScriptEnabled(true);
         webview.getSettings().setDomStorageEnabled(true);
         webview.setWebViewClient(new WebViewClient() {

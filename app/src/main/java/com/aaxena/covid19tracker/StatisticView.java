@@ -53,7 +53,7 @@ public class StatisticView extends AppCompatActivity {
                 "Loading Statistical Information", Toast.LENGTH_LONG).show();
 
         //WebView Implementation
-        mWebView = (WebView) findViewById(R.id.webview);
+        mWebView = findViewById(R.id.webview);
         mWebView.setWebViewClient(new WebViewClient());
         mWebView.loadUrl("https://www.worldometers.info/coronavirus/countries-where-coronavirus-has-spread/");
         mWebView.scrollTo(0, 1300);
@@ -65,7 +65,7 @@ public class StatisticView extends AppCompatActivity {
         });
 
 
-        findBox = (EditText) findViewById(R.id.findBox);
+        findBox = findViewById(R.id.findBox);
         //App Tutorial Translucent Screen
         new MaterialIntroView.Builder(this)
                 .enableDotAnimation(true)

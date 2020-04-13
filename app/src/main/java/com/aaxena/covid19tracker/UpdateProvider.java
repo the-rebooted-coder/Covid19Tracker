@@ -42,7 +42,7 @@ public class UpdateProvider extends AppCompatActivity {
         version_num = findViewById(R.id.version_num);
         version_num.setText(getString(R.string.trackerversion)+versionName);
         if (ContextCompat.checkSelfPermission(UpdateProvider.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED){
-            final WebView webview = (WebView) findViewById(R.id.updater);
+            final WebView webview = findViewById(R.id.updater);
             webview.setWebViewClient(new WebViewClient() {
                 @Override
                 public void onPageFinished(WebView view, String url) {
@@ -118,7 +118,7 @@ public class UpdateProvider extends AppCompatActivity {
         if(requestCode == STORAGE_PERMISSION_CODE){
             if (grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){}
             Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show();
-            final WebView webview = (WebView) findViewById(R.id.updater);
+            final WebView webview = findViewById(R.id.updater);
             webview.setWebViewClient(new WebViewClient() {
                 @Override
                 public void onPageFinished(WebView view, String url) {

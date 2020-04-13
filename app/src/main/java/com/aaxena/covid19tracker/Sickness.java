@@ -28,7 +28,7 @@ public class Sickness extends Activity implements OnPageChangeListener, OnLoadCo
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sickness);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        pdfView= (PDFView)findViewById(R.id.pdfView2);
+        pdfView= findViewById(R.id.pdfView2);
         displayFromAsset(SICK_FILE);
     }
 

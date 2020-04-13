@@ -26,7 +26,7 @@ public class Information extends Activity implements OnPageChangeListener, OnLoa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_information2);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        pdfView= (PDFView)findViewById(R.id.pdfView);
+        pdfView= findViewById(R.id.pdfView);
         displayFromAsset(SAMPLE_FILE);
     }
 

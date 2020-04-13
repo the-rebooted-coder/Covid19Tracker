@@ -8,6 +8,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -15,8 +17,6 @@ import android.os.Vibrator;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,11 +26,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Calendar;
-
-import co.mobiwise.materialintro.shape.Focus;
-import co.mobiwise.materialintro.shape.FocusGravity;
-import co.mobiwise.materialintro.shape.ShapeType;
-import co.mobiwise.materialintro.view.MaterialIntroView;
 
 public class Landing extends AppCompatActivity {
     private Button static_view;
@@ -44,9 +39,6 @@ public class Landing extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), "Kindly Turn Data Services 'On'", Snackbar.LENGTH_LONG);
-        snackbar.setAction(R.string.wifi_on, new MyUndoListener());
-        snackbar.show();
         super.onCreate(savedInstanceState);
         if (isFirstTime()) {
           // Dialog Box
@@ -61,7 +53,6 @@ public class Landing extends AppCompatActivity {
                         }
                     })
                     .create().show();
-
         }
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_landing);
@@ -124,7 +115,12 @@ public class Landing extends AppCompatActivity {
             public void onClick(View view) {
                 Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
                 v.vibrate(38);
-                moveToStaticPage();
+               if(haveNetwork()){
+                   moveToStaticPage();
+               } else if(!haveNetwork())
+               {
+                   Toast.makeText(Landing.this, "No Connection", Toast.LENGTH_SHORT).show();
+               }
             }
         });
         graphic_view = findViewById(R.id.graphical);
@@ -133,7 +129,12 @@ public class Landing extends AppCompatActivity {
             public void onClick(View view) {
                 Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
                 v.vibrate(38);
-                moveToGraphPage();
+                if(haveNetwork()){
+                    moveToGraphPage();
+                } else if(!haveNetwork())
+                {
+                    Toast.makeText(Landing.this, "No Connection", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         bharat_view = findViewById(R.id.bharat);
@@ -142,7 +143,12 @@ public class Landing extends AppCompatActivity {
             public void onClick(View view) {
                 Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
                 v.vibrate(38);
-                moveToBharatPage();
+                if(haveNetwork()){
+                    moveToBharatPage();
+                } else if(!haveNetwork())
+                {
+                    Toast.makeText(Landing.this, "No Connection", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         license = findViewById(R.id.license);
@@ -198,6 +204,9 @@ public class Landing extends AppCompatActivity {
     private void moveToBharatPage() {
         Intent intent = new Intent(Landing.this, IndianView.class);
         startActivity(intent);
+
+        //App Notification Manager
+
         Intent intent1 = new Intent(Landing.this, ReminderBroadcast.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(Landing.this, 0, intent1, 0);
 
@@ -213,6 +222,8 @@ public class Landing extends AppCompatActivity {
     private void moveToLicensePage() {
         Intent intent = new Intent(Landing.this, Licenses.class);
         startActivity(intent);
+
+        //App Notification Manager
         Intent intent1 = new Intent(Landing.this, ReminderBroadcast.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(Landing.this, 0, intent1, 0);
 
@@ -228,6 +239,8 @@ public class Landing extends AppCompatActivity {
     private void moveToInformationPage() {
         Intent intent = new Intent(Landing.this, Landing2.class);
         startActivity(intent);
+        //App Notification Manager
+
         Intent intent1 = new Intent(Landing.this, ReminderBroadcast.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(Landing.this, 0, intent1, 0);
         AlarmManager alarmManager =(AlarmManager)getSystemService(ALARM_SERVICE);
@@ -238,7 +251,7 @@ public class Landing extends AppCompatActivity {
 
         alarmManager.set(AlarmManager.RTC_WAKEUP, timeAtButtonClick + tenSecondsInMillis, pendingIntent);
     }
-
+    //First Time Run Checker
     private boolean isFirstTime() {
         SharedPreferences preferences = getPreferences(MODE_PRIVATE);
         boolean ranBefore = preferences.getBoolean("RanBefore", false);
@@ -271,4 +284,23 @@ public class Landing extends AppCompatActivity {
 
         }
     }
-}
+
+
+    //Network Checking Boolean
+    private boolean haveNetwork() {
+        boolean have_WIFI = false;
+        boolean have_MobileData = false;
+
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+        NetworkInfo[] networkInfos = connectivityManager.getAllNetworkInfo();
+        for (NetworkInfo info : networkInfos) {
+            if (info.getTypeName().equalsIgnoreCase("WIFI"))
+                if (info.isConnected())
+                    have_WIFI = true;
+            if (info.getTypeName().equalsIgnoreCase("MOBILE"))
+                if (info.isConnected())
+                    have_MobileData = true;
+            }
+        return have_MobileData||have_WIFI;
+        }
+    }

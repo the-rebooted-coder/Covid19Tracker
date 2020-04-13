@@ -26,7 +26,7 @@ public class Stopping extends Activity implements OnPageChangeListener, OnLoadCo
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stopping);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        pdfView= (PDFView)findViewById(R.id.pdfView3);
+        pdfView= findViewById(R.id.pdfView3);
         displayFromAsset(STOP_FILE);
     }
 

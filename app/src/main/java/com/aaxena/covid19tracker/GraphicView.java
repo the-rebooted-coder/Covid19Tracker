@@ -47,7 +47,7 @@ public class GraphicView extends AppCompatActivity {
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
         String skipMessage = settings.getString("skipMessage", "NOT checked");
 
-        dontShowAgain = (CheckBox) eulaLayout.findViewById(R.id.skip);
+        dontShowAgain = eulaLayout.findViewById(R.id.skip);
         adb.setView(eulaLayout);
         adb.setTitle("Before you Proceed");
         adb.setCancelable(false);
@@ -67,7 +67,8 @@ public class GraphicView extends AppCompatActivity {
                 editor.putString("skipMessage", checkBoxResult);
                 editor.commit();
 
-                // Do what you want to do on "OK" action
+                Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                v.vibrate(27);
 
                 return;
             }
@@ -90,6 +91,7 @@ public class GraphicView extends AppCompatActivity {
                 v.vibrate(30);
                 Intent intent = new Intent(GraphicView.this, Landing.class);
                 startActivity(intent);
+                finish();
 
                 return;
             }
